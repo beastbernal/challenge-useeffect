@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Counter from "./Counter"
+
 function App() {
+  const [toogle, setToogle] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>
+      {`Counter con valor de: ${toogle} `}
+      
+      </p>
+      {!toogle && 
+      <p>
+        Bienvenido por favor de clic para iniciar
+      </p>}
+      <button onClick={() => setToogle(!toogle)}>Iniciar/Finalizar</button>
+      {toogle && <Counter/>}
     </div>
   );
 }
